@@ -13,7 +13,7 @@ namespace CSharpDesignPatterns.Singleton
     public sealed class ThreadSafeSingleton
     {
         private static ThreadSafeSingleton _instance = null;
-        private static readonly object padlock = new object();
+        private static readonly object _padlock = new object();
 
         private ThreadSafeSingleton()
         {
@@ -24,7 +24,7 @@ namespace CSharpDesignPatterns.Singleton
         {
             get
             {
-                lock (padlock)
+                lock (_padlock)
                 {
                     if (_instance == null)
                     {
